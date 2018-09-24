@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {BrowserRouter, Route} from 'react-router-dom';
 
 //Components
 import PictureList from "./Components/PictureList";
@@ -12,13 +11,14 @@ class App extends Component {
         super();
         this.state = {
             pictures: [],
-            searchTerm: '',
+            searchTerm:'',
             loading: true,
         };
     }
 
     componentDidMount() {
-        this.performSearch();
+        const {name}=this.props.match.params;
+        this.performSearch(name);
     }
 
     performSearch = (query = 'sunsets') => {
@@ -39,20 +39,18 @@ class App extends Component {
 
     render() {
         return (
-            <BrowserRouter>
-                <div className="container">
-                    <SearchBar onSearch={this.performSearch}/>
-                    <MainNav handleClick={this.performSearch}/>
-                    {
-                        (this.state.loading)
-                            ? <p>Loading</p>
-                            : <PictureList
-                                photo={this.state.pictures}
-                                searchTerm={this.state.searchTerm}
-                            />
-                    }
-                </div>
-            </BrowserRouter>
+            <div className="container">
+                <SearchBar onSearch={this.performSearch}/>
+                <MainNav handleClick={this.performSearch}/>
+                {
+                    (this.state.loading)
+                        ? <p>Loading</p>
+                        : <PictureList
+                            photo={this.state.pictures}
+                            searchTerm={this.state.searchTerm}
+                        />
+                }
+            </div>
         );
     }
 }
