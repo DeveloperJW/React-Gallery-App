@@ -12,6 +12,9 @@ class SearchBar extends Component {
 
     handleSubmit = e => {
         e.preventDefault();
+        let searchName=this.name.value;
+        let path = `/search/${searchName}`;
+        this.props.handleSearch(path);
         this.props.onSearch(this.state.searchText);
         e.currentTarget.reset();
     };
@@ -24,6 +27,7 @@ class SearchBar extends Component {
                     type="search"
                     name="search"
                     placeholder="Search"
+                    ref={ (input) => this.name = input }
                     required/>
                 <button
                     type="submit"

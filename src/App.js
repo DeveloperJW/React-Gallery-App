@@ -36,11 +36,15 @@ class App extends Component {
             });
     };
 
+    handleSearch = (path) => {
+        this.props.history.push(path);
+    };
+
 
     render() {
         return (
             <div className="container">
-                <SearchBar onSearch={this.performSearch}/>
+                <SearchBar onSearch={this.performSearch} handleSearch={this.handleSearch}/>
                 <MainNav handleClick={this.performSearch}/>
                 {
                     (this.state.loading)
