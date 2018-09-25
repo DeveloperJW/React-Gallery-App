@@ -12,8 +12,8 @@ class SearchBar extends Component {
 
     handleSubmit = e => {
         e.preventDefault();
-        let searchName=this.name.value;
-        let path = `/search/${searchName}`;
+        const searchName=this.name.value;
+        const path = `/search/${searchName}`;
         this.props.handleSearch(path);
         this.props.onSearch(this.state.searchText);
         e.currentTarget.reset();

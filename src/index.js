@@ -5,14 +5,14 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import NotFound from "./Components/NotFound";
+import NotFound404 from "./Components/NotFound404";
 
 ReactDOM.render(
     <BrowserRouter>
         <Switch>
             <Route exact path="/" component={App} />
             <Route path="/search/:name" component={App}/>
-            <Route component={NotFound}/>
+            <Route component={NotFound404}/>
         </Switch>
     </BrowserRouter>,
     document.getElementById('root'));
