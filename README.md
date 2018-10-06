@@ -4,7 +4,7 @@
 
   - This project is created for the purpose of JavaScript Full Stack TechDegree - Unit 07 with TeamTreehouse. 
   
-  - The app will be deployed to: 
+  - The app has be deployed to herokuapp: [click here for live demo](https://pure-lowlands-81431.herokuapp.com/)
   
   
 - Project Description:
