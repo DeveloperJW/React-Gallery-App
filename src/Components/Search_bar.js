@@ -1,15 +1,23 @@
 import React, { Component } from 'react';
 
+/**
+ * SearchBar is an ES6 class component
+ * internal state: searchText, this is used to store the user's text input
+ * Whenever user changes the text input, the internal state of searchText will be updated and call the render
+ */
 class SearchBar extends Component {
     constructor(props) {
         super(props);
         this.state = {searchText: ''}
     }
 
+    // ES6 arrow functions are used to avoid calling .bind(this)
+    // onSearchChange function will update the internal state based on the text input
     onSearchChange = e => {
         this.setState({searchText: e.target.value});
     };
 
+    // handleSubmit function is triggered when the button is clicked
     handleSubmit = e => {
         e.preventDefault();
         const searchName=this.name.value;

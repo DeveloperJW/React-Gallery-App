@@ -1,5 +1,8 @@
 import React from 'react';
 
+/**
+ * Stateless function component NotFound is triggered when there is no corresponding results
+ */
 const NotFound = () => {
     return (
         <li className='not-found'>

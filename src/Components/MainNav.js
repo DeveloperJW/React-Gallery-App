@@ -1,6 +1,11 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
+/**
+ * MainNav is a functional stateless component
+ * Users can click pre-defined categories to get corresponding photos
+ * @param props
+ */
 const MainNav = props => {
     const handleClick = e => {
         props.handleClick(e.target.textContent);

@@ -7,20 +7,18 @@ import MainNav from './Components/MainNav';
 import apiKey from './.config';
 
 class App extends Component {
-    constructor() {
-        super();
-        this.state = {
-            pictures: [],
-            searchTerm:'',
-            loading: true,
-        };
-    }
+    state = {
+        pictures: [],
+        searchTerm: '',
+        loading: true,
+    };
 
     componentDidMount() {
-        const {name}=this.props.match.params;
+        const {name} = this.props.match.params;
         this.performSearch(name);
     }
 
+    //used es6 arrow function to avoid using .bind(this)
     performSearch = (query = 'sunsets') => {
         fetch(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
             .then(response => response.json())
@@ -42,17 +40,17 @@ class App extends Component {
 
 
     render() {
+        const {loading, pictures, searchTerm} = this.state;//ES6 Destructuring to make code more concise
         return (
             <div className="container">
                 <SearchBar onSearch={this.performSearch} handleSearch={this.handleSearch}/>
                 <MainNav handleClick={this.performSearch}/>
-                {
-                    (this.state.loading)
-                        ? <p>Loading</p>
-                        : <PictureList
-                            photo={this.state.pictures}
-                            searchTerm={this.state.searchTerm}
-                        />
+                {loading
+                    ? <p>Loading</p>
+                    : <PictureList
+                        photo={pictures} //since the usage of Destructuring, this.state can be omitted
+                        searchTerm={searchTerm}
+                    />
                 }
             </div>
         );

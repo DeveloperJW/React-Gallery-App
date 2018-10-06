@@ -1,6 +1,10 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
 
+/**
+ * Stateless functional component NotFound404 is created to handle URL mismatch
+ * This component is different from NotFound.js which handles no corresponding search results
+ */
 const NotFound404 = () => {
     return (
         <ul>

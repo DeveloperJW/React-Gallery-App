@@ -4,13 +4,12 @@ import Picture from './Picture';
 
 //url={`https://farm${picture.farm}.staticflickr.com/${picture.server}/${picture.id}_${picture.secret}.jpg`}
 
-const PictureList = props => {
-    const results = props.photo;
+const PictureList = ({photo, searchTerm}) => {
     let resultTitle='';
     let pictures;
-    if (results.length > 0) {
-        resultTitle=props.searchTerm+" pictures";
-        pictures = results.map(picture =>
+    if (photo.length > 0) {
+        resultTitle=searchTerm+" pictures";
+        pictures = photo.map(picture =>
             <Picture
                 url={`https://farm${picture.farm}.staticflickr.com/${picture.server}/${picture.id}_${picture.secret}.jpg`}
                 key={picture.id}
